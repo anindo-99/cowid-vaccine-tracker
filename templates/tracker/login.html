@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+
+<div class="header-bar">
+    <h1>Login</h1>
+</div>
+
+
+
+<!-- <div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+</div> -->
+
+
+<div class="card-body">
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username"
+                placeholder="Choose an unique Username" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="pass1">Password</label>
+            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter your Password"
+                required>
+            <p><a href="#" style="float:right;font-size:13px;">Forgot password?</a></p>
+
+
+        </div>
+
+        <input class="button" style="margin-top: 2px;" type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+
+</div>
+
+
+{% endblock content %}
